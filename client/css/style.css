@@ -1,0 +1,20 @@
+* {
+	margin: 0px auto;
+}
+
+#nav {
+	background-color: blue;
+	color: yellow;
+}
+
+#banner {
+	border: black 2px solid;
+}
+
+#log {
+	border: black 2px solid;	
+}
+
+#contact {
+	border: black 2px solid;
+}

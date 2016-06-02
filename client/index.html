@@ -23,70 +23,66 @@
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
+	<!-- STYLESHEET LINK -->
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
 	<!-- ANGULAR CODES -->
 	<script type="text/javascript">
 		var myApp = angular.module('myApp', ['ngRoute']);
 		myApp.config(function($routeProvider){
 			$routeProvider
-				.when('/login', {
-					templateUrl: 'partials/login.html'
-				})
 				.when('/dashboard', {
-					templateUrl: 'partials/dashboard'
+					templateUrl: 'partials/estimate.html'
 				})
 				.otherwise({
 					redirectTo: '/'
 				});
 		});
 
-		//USER CONTROLLER
-		myApp.controller('userCtrl', function($scope, $location, $routeParams, userFactory){
-			$scope.current_user = [];
-
-			$scope.loginUser = function(data){
-				userFactory.login($scope.newUser, function(data){
-					$scope.current_user = data;
-				});
-
-				$scope.newUser = {};
-				$location.path('/dashboard');
-			}
-		});
-
-		//DASHBOARD CONTROLLER
-		myApp.controller('dashCtrl', function($scope, $location, $routeParams, userFactory){
-			$scope.current_user = [];
-
-			userFactory.get_user(function(data){
-				$scope.current_user = info[0].name;
-			});
-
-			$scope.logout = function(){
-				$scope.current_user = "";
-			}
+		//ESTIMATE CONTROLLER
+		myApp.controller('estimateController', function($scope, $location, $routeParams, estimateFactory){
+			
 		});
 
 		//USER FACTORY
-		myApp.factory('userFactory', function($http){
+		myApp.factory('estimateFactory', function($http){
 			var factory = {};
-			var current_user = [];
+			var estimate = [];
 
-			factory.login = function(info, callback){
-				current_user.push(info);
-				callback(current_user);
-			}
-
-			factory.get_user = function(callback){
-				callback(current_user);
-			}
 			return factory;
 		});
 	</script>
 </head>
 <body>
 	<div class="container">
+
+		<div id="banner">
+		</div>
+
+		<nav class="navbar navbar-default" id="nav">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/">Indoor Climate Control</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li class="active"><a href="/">Home</a></li>
+		      <li><a href="#/estimate">Get an Estimate</a></li>
+		    </ul>
+		  </div>
+		</nav>
+
 		<div ng-view="">
 		</div>
+
+		<footer align="center">
+			<div id="logo">
+				<p>&copy; whatever year Indoor Climate Control</p>
+			</div>
+
+			<div id="contact">
+				<p>contact info here</p>
+			</div>
+		</footer>
 	</div>
 </body>
 </html>
