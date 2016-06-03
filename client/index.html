@@ -26,18 +26,22 @@
 	<!-- STYLESHEET LINK -->
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 
+	<!-- JQUERY CODE -->
+	<script src="../js/jq.js"></script>
+
 	<!-- ANGULAR CODES -->
 	<script type="text/javascript">
 		var myApp = angular.module('myApp', ['ngRoute']);
-		myApp.config(function($routeProvider){
-			$routeProvider
-				.when('/dashboard', {
-					templateUrl: 'partials/estimate.html'
-				})
-				.otherwise({
-					redirectTo: '/'
-				});
-		});
+
+		// myApp.config(function($routeProvider){
+		// 	$routeProvider
+		// 		.when('/dashboard', {
+		// 			templateUrl: 'partials/estimate.html'
+		// 		})
+		// 		.otherwise({
+		// 			redirectTo: '/'
+		// 		});
+		// });
 
 		//ESTIMATE CONTROLLER
 		myApp.controller('estimateController', function($scope, $location, $routeParams, estimateFactory){
@@ -53,36 +57,56 @@
 		});
 	</script>
 </head>
-<body>
-	<div class="container">
+<body id="myPage" data-spy="scroll">
+	<!-- <div class="container"> -->
 
-		<div id="banner">
-		</div>
-
-		<nav class="navbar navbar-default" id="nav">
+		<nav class="navbar navbar-default navbar-fixed-top" id="navbar">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="/">Indoor Climate Control</a>
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>                        
+		      </button>
+		      <a class="navbar-brand" href="#myPage">LOGO</a>
 		    </div>
-		    <ul class="nav navbar-nav">
-		      <li class="active"><a href="/">Home</a></li>
-		      <li><a href="#/estimate">Get an Estimate</a></li>
-		    </ul>
+		    <div class="collapse navbar-collapse">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#about"></span>ABOUT</a></li>
+		        <li><a href="#estimate">GET AN ESTIMATE</a></li>
+		      </ul>
+		    </div>
 		  </div>
 		</nav>
 
-		<div ng-view="">
+		<div id="banner">
+			<h1 align="center">Indoor Climate Control</h1>
+			<p align="center">Company mission statement</p>
 		</div>
 
-		<footer align="center">
-			<div id="logo">
-				<p>&copy; whatever year Indoor Climate Control</p>
-			</div>
+		<div id="about">
 
-			<div id="contact">
-				<p>contact info here</p>
-			</div>
-		</footer>
-	</div>
+		</div>
+
+		<div id="estimate">
+
+		</div>
+
+	<!-- </div> -->
 </body>
+<footer>
+
+	<div id="logo">
+		<p>&copy; whatever year Indoor Climate Control</p>
+	</div>
+
+	<div id="contact">
+		<ul>
+			<li>PHONE : (707) 235-5897</li>
+			<li>EMAIL : ddanderson@indoorclimatecontrol.biz</li>
+			<li>MAIL : PO BOX 5546, Santa Rosa, CA 95402</li>
+		</ul>
+	</div>
+
+</footer>
 </html>
