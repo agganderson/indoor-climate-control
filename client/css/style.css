@@ -60,7 +60,42 @@
 #estimate {
 	width: 100%;
 	height: 600px;
-	background-color: blue;
+	background-color: #d0d0d0;
+}
+
+/*process section styling*/
+#process {
+	width: 100%;
+	height: 600px;
+	background-color: #d0d0d0;
+}
+
+/*sample section styling*/
+#sample {
+	width: 100%;
+	height: 600px;
+	background-color: #d0d0d0;
+}
+
+/*experience section styling*/
+#experience {
+	width: 100%;
+	height: 600px;
+	background-color: #d0d0d0;
+}
+
+/*links section styling*/
+#links {
+	width: 100%;
+	height: 600px;
+	background-color: #d0d0d0;
+}
+
+/*contact section styling*/
+#contact {
+	width: 100%;
+	height: 600px;
+	background-color: #d0d0d0;
 }
 
 /*footer styling*/
