@@ -1,5 +1,5 @@
 <DOCTYPE html>
-<html lang='en' ng-app='myApp'>
+<html lang='en' ng-app='icc'>
 <head>
 	<title></title>
 	<!-- ANGULAR CDN -->
@@ -19,21 +19,19 @@
 	
 
 	 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+	  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+	  <link rel="stylesheet" type="text/css" href="./css/styles.css">
 
-	<!-- JQUERY CODE 
-	<script src="../js/jq.js"></script>
-	-->
+	<!-- JQUERY CODE -->
+	<!-- // <script src="./js/jq.js"></script> -->
 
-	<!-- ANGULAR CODES -->
 	<script type="text/javascript">
-		var myApp = angular.module('myApp', ['ngRoute']);
+		var icc = angular.module('icc', ['ngRoute']);
 
 		// myApp.config(function($routeProvider){
 		// 	$routeProvider
@@ -46,27 +44,19 @@
 		// });
 
 		//ESTIMATE CONTROLLER
-		myApp.controller('estimateController', function($scope, $location, $routeParams, estimateFactory){
+		icc.controller('estimateController', function($scope, $location, $routeParams, estimateFactory){
 			
 		});
 
 		//USER FACTORY
-		myApp.factory('estimateFactory', function($http){
+		icc.factory('estimateFactory', function($http){
 			var factory = {};
 			var estimate = [];
 
 			return factory;
 		});
 	</script>
-<!--  
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('#sample').click(function(){
-				$("img").toggle(600);
-			});
-		})
-	</script>
-	-->
+
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
@@ -84,7 +74,6 @@
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a href="#about">ABOUT</a></li>
 	        <li><a href="#process">CX PROCESS</a></li>
-	        <li><a href="#sample">SAMPLE FORMS</a></li>
 	        <li><a href="#experience">EXPERIENCE</a></li>
 	        <li><a href="#estimate">GET AN ESTIMATE</a></li>
 	        <li><a href="#links">LINKS</a></li>
@@ -120,18 +109,19 @@
 	</div>
 
 	<!-- PROCESS -->
-	<div id="process" class="container-fluid bg-grey">
+	<div class="container-fluid bg-grey" id="process">
 	  <div class="row">
 	    <div class="col-sm-4">
-	      <span class="slideanim"><img src="./images/sample-form.jpg"></span>
+	      <span class="slideanim glyphicon glyphicon-list-alt logo"></span>
 	    </div>
 	    <div class="col-sm-8">
 			<h2>The Commissioning (Cx) Process</h2>
 
 			<h4>The Owner's Project Requirements (OPR)</h4>
 			<p>We provide a template and assist the Owner in expressing what they expect out of their building, including indoor environmental details and specific environmental considerations for the site. This is a "wish list" for the owner.</p>
-
-			<h4>The Basis of Design (BoD)</h4>
+	  	</div>
+	  	<div class="col-sm-9">
+	  		<h4>The Basis of Design (BoD)</h4>
 			<p>The Design Team or Design/Build Contractor generates a document which describes the details of the building and systems which are proposed to satisfy the OPR. This is often impacted by the budget, leading to a revised OPR. We review the BoD and comment on it's impact on the OPR.</p>
 			
 			<h4>Pre-Functional Checklists (PFC)</h4>
@@ -145,6 +135,7 @@
 			
 			<h4>The Final Cx Report</h4>
 			<p>All the documentation generated during the Cx Process is compiled in an organized document allowing the Owner verify the correct installation and operation of all the Cx Systems and provides for a method of regularly scheduled verification of correct operation.</p>
+
 	  	</div>
 	</div>
 
@@ -175,11 +166,11 @@
 	      </div>
 	    </div>
 	  </div><br>
-	    <p>Click <a href="./images/Cx_Projects.pdf">here</a> to view a more comprehensive list of projects</p>
+	    <h4>Click <a href="./images/Cx_Projects.pdf">here</a> to view a more comprehensive list of projects</h4>
 	   <br>
 
-	<!-- estimate -->
-	<div id="estimate" class="container-fluid">
+	<!-- ESTIMATE -->
+	<div id="estimate" class="container-fluid" ng-controller="estimateController">
 	  <div class="text-center">
 	    <h2>Get an Estimate</h2>
 	    <h4>Fill out this form to get an estimate on your project.</h4>
@@ -229,7 +220,7 @@
 	<!-- LINKS -->
 	<div id="links" class="container-fluid text-center bg-grey">
 	  <h2>Links</h2><br>
-	  <h5>Feel free to familiarize yourself with the Commissioning process. Below are some links you may find useful.</h5>
+	  <h4>Feel free to familiarize yourself with the Commissioning process. Below are some links you may find useful.</h4>
 	  <div class="row text-center slideanim">
 	    <div class="col-sm-4">
 	      <div class="thumbnail">
@@ -252,38 +243,24 @@
 	  </div><br>
 
 	<!-- CONTACT -->
-	<div id="contact" class="container-fluid bg-grey text-center">
-	  <h4 class="text-center">CONTACT</h4>
+	<div id="contact" class="container-fluid bg-grey">
+	  <h4>CONTACT</h4>
 	  <div class="row">
-	    <div class="col-sm-5">
-	      <p>Contact us.</p>
+	  	<div class="col-sm-3">
+	  	</div>
+	    <div class="col-sm-6">
 	      <p><span class="glyphicon glyphicon-map-marker"></span> PO BOX 6646, Santa Rosa, CA 96402</p>
-	      <p><span class="glyphicon glyphicon-phone"></span> (707) 236-6897</p>
-	      <p><span class="glyphicon glyphicon-envelope"></span> ddanderson@indoorclimatecontrol.biz</p>
-	    </div>
-	    <div class="col-sm-7 slideanim">
-	      <div class="row">
-	        <div class="col-sm-6 form-group">
-	          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-	        </div>
-	        <div class="col-sm-6 form-group">
-	          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-	        </div>
-	      </div>
-	      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="6"></textarea><br>
-	      <div class="row">
-	        <div class="col-sm-12 form-group">
-	          <button class="btn btn-default pull-right" type="submit">Send</button>
-	        </div>
-	      </div>
+	      <p><span class="glyphicon glyphicon-phone"></span> (707) 235-5897</p>
+	      <p><span class="glyphicon glyphicon-envelope"></span><a href="mailto:ddanderson@indoorclimatecontrol.biz?Subject=Inquiry"> ddanderson@indoorclimatecontrol.biz</a></p>
 	    </div>
 	  </div>
 	</div>
+
 	<footer class="container-fluid text-center">
 	  <a href="#myPage" title="To Top">
 	    <span class="glyphicon glyphicon-chevron-up"></span>
 	  </a>
-	  <p>Indoor Climate Control - Established circa 3007</p>
+	  <p>Indoor Climate Control - Established circa 2007</p>
 	</footer>
 
 	<script>
