@@ -2,19 +2,9 @@
 <html lang='en' ng-app='myApp'>
 <head>
 	<title></title>
-	<!-- BOOTSTRAP CDN -->
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
 	<!-- ANGULAR CDN -->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-route.min.js"></script>
 
     <!-- JQUERY CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -24,10 +14,22 @@
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 	<!-- STYLESHEET LINK -->
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="../css/style.css"> -->
 
-	<!-- JQUERY CODE -->
+	
+
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+
+	<!-- JQUERY CODE 
 	<script src="../js/jq.js"></script>
+	-->
 
 	<!-- ANGULAR CODES -->
 	<script type="text/javascript">
@@ -56,77 +58,270 @@
 			return factory;
 		});
 	</script>
+<!--  
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#sample').click(function(){
+				$("img").toggle(600);
+			});
+		})
+	</script>
+	-->
 </head>
-<body id="myPage" data-spy="scroll">
-	<!-- <div class="container"> -->
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-		<nav class="navbar navbar-default navbar-fixed-top" id="navbar">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>                        
-		      </button>
-		      <a class="navbar-brand" href="#myPage">LOGO</a>
-		    </div>
-		    <div class="collapse navbar-collapse">
-		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="#about"></span>ABOUT</a></li>
-		        <li><a href="#process"></span>CX PROCESS</a></li>
-		        <li><a href="#sample"></span>SAMPLE FORMS</a></li>
-		        <li><a href="#experience"></span>EXPERIENCE</a></li>
-		        <li><a href="#links"></span>LINKS</a></li>
-		        <li><a href="#estimate">GET AN ESTIMATE</a></li>
-		        <li><a href="#contact"></span>CONTACT</a></li>
-		      </ul>
-		    </div>
-		  </div>
-		</nav>
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </button>
+	      <a class="navbar-brand" href="#myPage">ICC</a>
+	    </div>
+	    <div class="collapse navbar-collapse" >
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#about">ABOUT</a></li>
+	        <li><a href="#process">CX PROCESS</a></li>
+	        <li><a href="#sample">SAMPLE FORMS</a></li>
+	        <li><a href="#experience">EXPERIENCE</a></li>
+	        <li><a href="#estimate">GET AN ESTIMATE</a></li>
+	        <li><a href="#links">LINKS</a></li>
+	        <li><a href="#contact">CONTACT</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
 
-		<div id="banner">
-			<h1 align="center">Indoor Climate Control</h1>
-			<p align="center">Company mission statement</p>
-		</div>
-
-		<div id="about">
-			<p></p>
-		</div>
-
-		<div id="process">
-		</div>
-
-		<div id="sample">
-		</div>
-
-		<div id="experience">
-		</div>
-
-		<div id="links">
-		</div>
-
-		<div id="estimate">
-
-		</div>
-
-		<div id="contact">
-		</div>
-
-	<!-- </div> -->
-</body>
-<footer>
-
-	<div id="logo">
-		<p>&copy; whatever year Indoor Climate Control</p>
+	<div class="jumbotron text-center">
+	  <h1>Indoor Climate Control</h1> 
+	  <p>We specialize in blablabla</p> 
 	</div>
 
-	<div id="contact">
-		<ul>
-			<li>PHONE : (707) 235-5897</li>
-			<li>EMAIL : ddanderson@indoorclimatecontrol.biz</li>
-			<li>MAIL : PO BOX 5546, Santa Rosa, CA 95402</li>
-		</ul>
+	<!-- ABOUT -->
+	<div id="about" class="container-fluid">
+	  <div class="row">
+	    <div class="col-sm-8">
+	    	<h2>About</h2>
+			<h4>Commissioning Exclusively Independent, Experienced, Competitive</h4>
+			<p>With over 30 years of experience in the HVAC and energy fields. Commissioning for Owner Specified requirements as well as LEED Fundamental and Enhanced requirements.</p>
+
+			<h4>Not Just Paper, Providing Value to the Owner</h4>
+			<p>We possess our own instrumentation for evaluating systems. Thourough Functional Testing and Field Inspections by experienced Agent. Experience includes; Design, Peer Review for Code Compliance, Testing Adjusting and Balancing, Controls Installation</p>
+
+			<h4>Our Commissioning Philosophy</h4>
+			<p>The Commissioning Agent should be a highly experienced individual with no conflicts of interest. The firm should possess no licenses or certifications which would allow the Agent to be in competition with the Project Team members. The Firm should not rely on anyone but the Owner or Owner's Representative for fees or income.</p>
+	    </div>
+	    <div class="col-sm-4">
+	      <img src="./images/p_00017.jpg" alt="device" height="400" width="300">
+	    </div>
+	  </div>
 	</div>
 
-</footer>
+	<!-- PROCESS -->
+	<div id="process" class="container-fluid bg-grey">
+	  <div class="row">
+	    <div class="col-sm-4">
+	      <span class="slideanim"><img src="./images/sample-form.jpg"></span>
+	    </div>
+	    <div class="col-sm-8">
+			<h2>The Commissioning (Cx) Process</h2>
+
+			<h4>The Owner's Project Requirements (OPR)</h4>
+			<p>We provide a template and assist the Owner in expressing what they expect out of their building, including indoor environmental details and specific environmental considerations for the site. This is a "wish list" for the owner.</p>
+
+			<h4>The Basis of Design (BoD)</h4>
+			<p>The Design Team or Design/Build Contractor generates a document which describes the details of the building and systems which are proposed to satisfy the OPR. This is often impacted by the budget, leading to a revised OPR. We review the BoD and comment on it's impact on the OPR.</p>
+			
+			<h4>Pre-Functional Checklists (PFC)</h4>
+			<p>We provide checklists to the Contractors for them to verify that their installation meets the Specifications (if they exist) and industry standard practices. We perform field visits to confirm the installation and add items to the Issues Log.</p>
+			
+			<h4>The Issues Log</h4>
+			<p>Starting with the BoD and continuing through the end of the Cx Process, we start and maintain a og of all the Issues that are generated during the Process. This provides the Owner with a clear, simple method of tracking changes and corrections and is a valuable tool for documenting compromises and installation realities that occur during construction.</p>
+			
+			<h4>Functional Performance Testing (FPT)</h4>
+			<p>This is where the rubber meets the road. Based on our review of the submittals and the Design, we generate a sequence of testing procedures for all the Commissioned Systems. All FPT occurs after the installations are up and running and thoroughly tested by the installing Contractors. We witness the FPT and document any deviations on the Issues Log.</p>
+			
+			<h4>The Final Cx Report</h4>
+			<p>All the documentation generated during the Cx Process is compiled in an organized document allowing the Owner verify the correct installation and operation of all the Cx Systems and provides for a method of regularly scheduled verification of correct operation.</p>
+	  	</div>
+	</div>
+
+
+	<!-- EXPERIENCE -->
+	<div id="experience" class="container-fluid text-center bg-grey">
+	  <h2>Experience</h2><br>
+	  <div class="row text-center slideanim">
+	    <div class="col-sm-4">
+	      <div class="thumbnail">
+	        <img src="./images/Pic-RitzNS.jpg" alt="Ritz Carlton" width="400" height="300">
+	        <p><strong>Ritz Carlton Northstar, California</strong></p>
+	        <p>Another large 626,000 sq.ft hotel and condominium resort development Commissioned to LEED Certified standards.</p>
+	      </div>
+	    </div>
+	    <div class="col-sm-4">
+	      <div class="thumbnail">
+	        <img src="./images/Pic-DeerValley.jpg" alt="Montage Deer Valley" width="400" height="300">
+	        <p><strong>Montage Deer Valley, Utah</strong></p>
+	        <p>A high end ski-in, ski-out resort of 760,000 sq.ft. Commissioned systems include HVAC, Lighting and Snow Melt.</p>
+	      </div>
+	    </div>
+	    <div class="col-sm-4">
+	      <div class="thumbnail">
+	        <img src="./images/Pic-SoaringWay.jpg" alt="Soaring Way" width="400" height="300">
+	        <p><strong>Soaring Way Offices, California</strong></p>
+	        <p>A three story story Executive quality office building, Commissioned to LEED Silver Level.</p>
+	      </div>
+	    </div>
+	  </div><br>
+	    <p>Click <a href="./images/Cx_Projects.pdf">here</a> to view a more comprehensive list of projects</p>
+	   <br>
+
+	<!-- estimate -->
+	<div id="estimate" class="container-fluid">
+	  <div class="text-center">
+	    <h2>Get an Estimate</h2>
+	    <h4>Fill out this form to get an estimate on your project.</h4>
+	  </div>
+	  <div class="row slideanim">    
+	    <div class="col-sm-6 col-xs-12">
+	      <div class="panel panel-default text-center">
+	        <div class="panel-heading">
+	          <h1>Pro</h1>
+	        </div>
+	        <div class="panel-body">
+	          <p><strong>60</strong> Lorem</p>
+	          <p><strong>26</strong> Ipsum</p>
+	          <p><strong>10</strong> Dolor</p>
+	          <p><strong>6</strong> Sit</p>
+	          <p><strong>Endless</strong> Amet</p>
+	        </div>
+	        <div class="panel-footer">
+	          <h3>$29</h3>
+	          <h4>per month</h4>
+	          <button class="btn btn-lg">Sign Up</button>
+	        </div>
+	      </div>      
+	    </div>       
+	    <div class="col-sm-6 col-xs-12">
+	      <div class="panel panel-default text-center">
+	        <div class="panel-heading">
+	          <h1>Premium</h1>
+	        </div>
+	        <div class="panel-body">
+	          <p><strong>100</strong> Lorem</p>
+	          <p><strong>60</strong> Ipsum</p>
+	          <p><strong>26</strong> Dolor</p>
+	          <p><strong>10</strong> Sit</p>
+	          <p><strong>Endless</strong> Amet</p>
+	        </div>
+	        <div class="panel-footer">
+	          <h3>$49</h3>
+	          <h4>per month</h4>
+	          <button class="btn btn-lg">Sign Up</button>
+	        </div>
+	      </div>      
+	    </div>    
+	  </div>
+	</div>
+
+	<!-- LINKS -->
+	<div id="links" class="container-fluid text-center bg-grey">
+	  <h2>Links</h2><br>
+	  <h5>Feel free to familiarize yourself with the Commissioning process. Below are some links you may find useful.</h5>
+	  <div class="row text-center slideanim">
+	    <div class="col-sm-4">
+	      <div class="thumbnail">
+	        <a href="http://www.bcxa.org/"><img src="./images/BCA-banner.jpg" alt="BCA" width="300" height="300"></a>
+	        <p><strong>The Building Commissioning Association</strong></p>
+	      </div>
+	    </div>
+	    <div class="col-sm-4">
+	      <div class="thumbnail">
+	        <a href="http://www.gbci.org/"><img src="./images/gbci.jpg" alt="GBCI" width="300" height="300"></a>
+	        <p><strong>Green Building Certification Institue (Governs LEED STDS)</strong></p>
+	      </div>
+	    </div>
+	   	<div class="col-sm-4">
+	      <div class="thumbnail">
+	        <a href="http://www.cacx.org/"><img src="./images/ccc.jpg" alt="CCC" width="300" height="300"></a>
+	        <p><strong>California Commissioning Collaborative</strong></p>
+	      </div>
+	    </div>
+	  </div><br>
+
+	<!-- CONTACT -->
+	<div id="contact" class="container-fluid bg-grey text-center">
+	  <h4 class="text-center">CONTACT</h4>
+	  <div class="row">
+	    <div class="col-sm-5">
+	      <p>Contact us.</p>
+	      <p><span class="glyphicon glyphicon-map-marker"></span> PO BOX 6646, Santa Rosa, CA 96402</p>
+	      <p><span class="glyphicon glyphicon-phone"></span> (707) 236-6897</p>
+	      <p><span class="glyphicon glyphicon-envelope"></span> ddanderson@indoorclimatecontrol.biz</p>
+	    </div>
+	    <div class="col-sm-7 slideanim">
+	      <div class="row">
+	        <div class="col-sm-6 form-group">
+	          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+	        </div>
+	        <div class="col-sm-6 form-group">
+	          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+	        </div>
+	      </div>
+	      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="6"></textarea><br>
+	      <div class="row">
+	        <div class="col-sm-12 form-group">
+	          <button class="btn btn-default pull-right" type="submit">Send</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<footer class="container-fluid text-center">
+	  <a href="#myPage" title="To Top">
+	    <span class="glyphicon glyphicon-chevron-up"></span>
+	  </a>
+	  <p>Indoor Climate Control - Established circa 3007</p>
+	</footer>
+
+	<script>
+	$(document).ready(function(){
+	  // Add smooth scrolling to all links in navbar + footer link
+	  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+	    // Make sure this.hash has a value before overriding default behavior
+	    if (this.hash !== "") {
+	      // Prevent default anchor click behavior
+	      event.preventDefault();
+
+	      // Store hash
+	      var hash = this.hash;
+
+	      // Using jQuery's animate() method to add smooth page scroll
+	      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+	      $('html, body').animate({
+	        scrollTop: $(hash).offset().top
+	      }, 900, function(){
+	   
+	        // Add hash (#) to URL when done scrolling (default click behavior)
+	        window.location.hash = hash;
+	      });
+	    } // End if
+	  });
+	  
+	  $(window).scroll(function() {
+	    $(".slideanim").each(function(){
+	      var pos = $(this).offset().top;
+
+	      var winTop = $(window).scrollTop();
+	        if (pos < winTop + 600) {
+	          $(this).addClass("slide");
+	        }
+	    });
+	  });
+	})
+	</script>
+
+	</body>
 </html>

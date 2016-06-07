@@ -52,8 +52,17 @@
 #about {
 	width: 100%;
 	height: 500px;
-	background-color: #d0d0d0;
-}
+/*	background-color: #d0d0d0;
+*/}
+
+	.right {
+		text-align: right;
+		width: 60%;
+	}
+
+	.left {
+		width: 60%;
+	}
 
 /*estimate section styling*/
 
@@ -86,13 +95,6 @@
 
 /*links section styling*/
 #links {
-	width: 100%;
-	height: 600px;
-	background-color: #d0d0d0;
-}
-
-/*contact section styling*/
-#contact {
 	width: 100%;
 	height: 600px;
 	background-color: #d0d0d0;
