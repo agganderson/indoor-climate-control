@@ -37,7 +37,8 @@
   .logo {
       color: #339966;
       font-size: 200px;
-      margin-bottom: 20px; 
+      margin-bottom: 20px;
+      margin-left: 60px; 
   }
   .thumbnail {
       padding: 0 0 15px 0;
