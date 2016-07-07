@@ -1,64 +1,59 @@
 <DOCTYPE html>
-<html lang='en' ng-app='icc'>
+<html lang='en' ng-app='iccApp'>
 <head>
-	<title></title>
-	<!-- ANGULAR CDN -->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-route.min.js"></script>
+	<title>Indoor Climate Control</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <!-- JQUERY CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-    <!-- JQUERY UI CDN -->
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
-	<!-- STYLESHEET LINK -->
-	<!-- <link rel="stylesheet" type="text/css" href="../css/style.css"> -->
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 
-	
+	<!-- jQuery CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc.5/angular-material.min.js"></script>
 
-	 <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-	  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-	  <link rel="stylesheet" type="text/css" href="./css/styles.css">
-
-	<!-- JQUERY CODE -->
-	<!-- // <script src="./js/jq.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 	<script type="text/javascript">
-		var icc = angular.module('icc', ['ngRoute']);
+		var iccAppModule = angular.module("iccApp", []);
 
-		// myApp.config(function($routeProvider){
-		// 	$routeProvider
-		// 		.when('/dashboard', {
-		// 			templateUrl: 'partials/estimate.html'
-		// 		})
-		// 		.otherwise({
-		// 			redirectTo: '/'
-		// 		});
-		// });
-
-		//ESTIMATE CONTROLLER
-		icc.controller('estimateController', function($scope, $location, $routeParams, estimateFactory){
-			
-		});
-
-		//USER FACTORY
-		icc.factory('estimateFactory', function($http){
-			var factory = {};
+		iccAppModule.factory('estimateFactory', function(){
 			var estimate = [];
+			var factory = {};
+
+			factory.createEstimate = function(x){
+				console.log('in createEstimate factory function', x.number);
+				y = x.number;
+				y = x.number*x.number*3;
+				console.log(y, ' is the estimate and ', x.number, ' is the input');
+
+				y = y - 557(x.number)/34960;
+				console.log(y, ' is the estimate and ', x.number, ' is the input');
+
+				
+			}
 
 			return factory;
+		});
+
+		iccAppModule.controller('estimateController', function($scope, estimateFactory){
+			$scope.estimate = [];
+
+
+			$scope.getEstimate = function(x){
+				console.log($scope.newEstimate);
+				estimateFactory.createEstimate($scope.newEstimate);
+				$scope.newEstimate = {};
+			};
 		});
 	</script>
 
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" ng-controller="estimateController">
 
 	<nav class="navbar navbar-default navbar-fixed-top">
 	  <div class="container">
@@ -91,50 +86,59 @@
 	<!-- ABOUT -->
 	<div id="about" class="container-fluid">
 	  <div class="row">
-	    <div class="col-sm-8">
+	    <div class="col-sm-12">
 	    	<h2>About</h2>
-			<h4>Commissioning Exclusively Independent, Experienced, Competitive</h4>
-			<p>With over 30 years of experience in the HVAC and energy fields. Commissioning for Owner Specified requirements as well as LEED Fundamental and Enhanced requirements.</p>
+	    	<div class="col-sm-8">
+				<h4>Commissioning Exclusively Independent, Experienced, Competitive</h4>
+				<p>With over 30 years of experience in the HVAC and energy fields. Commissioning for Owner Specified requirements as well as LEED Fundamental and Enhanced requirements.</p>
+			</div>
 
-			<h4>Not Just Paper, Providing Value to the Owner</h4>
-			<p>We possess our own instrumentation for evaluating systems. Thourough Functional Testing and Field Inspections by experienced Agent. Experience includes; Design, Peer Review for Code Compliance, Testing Adjusting and Balancing, Controls Installation</p>
+			<div class="col-sm-8 pull-right">
+				<h4>Not Just Paper, Providing Value to the Owner</h4>
+				<p>We possess our own instrumentation for evaluating systems. Thourough Functional Testing and Field Inspections by experienced Agent. Experience includes; Design, Peer Review for Code Compliance, Testing Adjusting and Balancing, Controls Installation</p>
+			</div>
 
-			<h4>Our Commissioning Philosophy</h4>
-			<p>The Commissioning Agent should be a highly experienced individual with no conflicts of interest. The firm should possess no licenses or certifications which would allow the Agent to be in competition with the Project Team members. The Firm should not rely on anyone but the Owner or Owner's Representative for fees or income.</p>
-	    </div>
-	    <div class="col-sm-4">
-	      <span class="slideanim glyphicon glyphicon-equalizer logo"></span>
+			<div class="col-sm-8">
+				<h4>Our Commissioning Philosophy</h4>
+				<p>The Commissioning Agent should be a highly experienced individual with no conflicts of interest. The firm should possess no licenses or certifications which would allow the Agent to be in competition with the Project Team members. The Firm should not rely on anyone but the Owner or Owner's Representative for fees or income.</p>
+			</div>
 	    </div>
 	  </div>
 	</div>
 
 	<!-- PROCESS -->
-	<div class="container-fluid bg-grey" id="process">
-	  <div class="row">
-	    <div class="col-sm-4">
-	      <span class="slideanim glyphicon glyphicon-list-alt logo"></span>
-	    </div>
-	    <div class="col-sm-8">
-			<h2>The Commissioning (Cx) Process</h2>
+	<div class="container-fluid bg-blue" id="process">
+		<div class="row">
+		    <h2 class="text-center">The Commissioning (Cx) Process</h2>
+			<div class="process col-sm-6">
+				<h4>The Owner's Project Requirements (OPR)</h4>
+				<p>We provide a template and assist the Owner in expressing what they expect out of their building, including indoor environmental details and specific environmental considerations for the site. This is a "wish list" for the owner.</p>
+		  	</div>
 
-			<h4>The Owner's Project Requirements (OPR)</h4>
-			<p>We provide a template and assist the Owner in expressing what they expect out of their building, including indoor environmental details and specific environmental considerations for the site. This is a "wish list" for the owner.</p>
-	  	</div>
-	  	<div class="col-sm-9">
-	  		<h4>The Basis of Design (BoD)</h4>
-			<p>The Design Team or Design/Build Contractor generates a document which describes the details of the building and systems which are proposed to satisfy the OPR. This is often impacted by the budget, leading to a revised OPR. We review the BoD and comment on it's impact on the OPR.</p>
-			
-			<h4>Pre-Functional Checklists (PFC)</h4>
-			<p>We provide checklists to the Contractors for them to verify that their installation meets the Specifications (if they exist) and industry standard practices. We perform field visits to confirm the installation and add items to the Issues Log.</p>
-			
-			<h4>The Issues Log</h4>
-			<p>Starting with the BoD and continuing through the end of the Cx Process, we start and maintain a og of all the Issues that are generated during the Process. This provides the Owner with a clear, simple method of tracking changes and corrections and is a valuable tool for documenting compromises and installation realities that occur during construction.</p>
-			
-			<h4>Functional Performance Testing (FPT)</h4>
-			<p>This is where the rubber meets the road. Based on our review of the submittals and the Design, we generate a sequence of testing procedures for all the Commissioned Systems. All FPT occurs after the installations are up and running and thoroughly tested by the installing Contractors. We witness the FPT and document any deviations on the Issues Log.</p>
-			
-			<h4>The Final Cx Report</h4>
-			<p>All the documentation generated during the Cx Process is compiled in an organized document allowing the Owner verify the correct installation and operation of all the Cx Systems and provides for a method of regularly scheduled verification of correct operation.</p>
+		  	<div class="process col-sm-6">
+		  		<h4>The Basis of Design (BoD)</h4>
+				<p>The Design Team or Design/Build Contractor generates a document which describes the details of the building and systems which are proposed to satisfy the OPR. This is often impacted by the budget, leading to a revised OPR. We review the BoD and comment on it's impact on the OPR.</p>
+			</div>
+
+			<div class="process col-sm-6">	
+				<h4>Pre-Functional Checklists (PFC)</h4>
+				<p>We provide checklists to the Contractors for them to verify that their installation meets the Specifications (if they exist) and industry standard practices. We perform field visits to confirm the installation and add items to the Issues Log.</p>
+			</div>
+
+			<div class="process col-sm-6">	
+				<h4>The Issues Log</h4>
+				<p>Starting with the BoD and continuing through the end of the Cx Process, we start and maintain a og of all the Issues that are generated during the Process. This provides the Owner with a clear, simple method of tracking changes and corrections and is a valuable tool for documenting compromises and installation realities that occur during construction.</p>
+			</div>
+
+			<div class="process col-sm-6">	
+				<h4>Functional Performance Testing (FPT)</h4>
+				<p>This is where the rubber meets the road. Based on our review of the submittals and the Design, we generate a sequence of testing procedures for all the Commissioned Systems. All FPT occurs after the installations are up and running and thoroughly tested by the installing Contractors. We witness the FPT and document any deviations on the Issues Log.</p>
+			</div>
+
+			<div class="process col-sm-6">	
+				<h4>The Final Cx Report</h4>
+				<p>All the documentation generated during the Cx Process is compiled in an organized document allowing the Owner verify the correct installation and operation of all the Cx Systems and provides for a method of regularly scheduled verification of correct operation.</p>
+			</div>
 
 	  	</div>
 	</div>
@@ -171,50 +175,23 @@
 
 	<!-- ESTIMATE -->
 	<div id="estimate" class="container-fluid" ng-controller="estimateController">
-	  <div class="text-center">
-	    <h2>Get an Estimate</h2>
-	    <h4>Fill out this form to get an estimate on your project.</h4>
-	  </div>
-	  <div class="row slideanim">    
+	  	<div class="text-center">
+	    	<h2>Get an Estimate</h2>
+	    	<h4>Input your project's square footage below</h4>
+	  	</div>
+	    <div class="col-sm-6 col-xs-12 text-center">
+			<form role="form">
+			  	<div class="form-group">
+				    <label for="customer-input">Sq ft:</label>
+				    <input type="text" ng-model="newEstimate.number" class="form-control">
+			  	</div>
+			  	<button ng-click="getEstimate()" class="btn btn-default">Estimate it!</button>
+			</form> 
+	    </div>   
+
 	    <div class="col-sm-6 col-xs-12">
-	      <div class="panel panel-default text-center">
-	        <div class="panel-heading">
-	          <h1>Pro</h1>
-	        </div>
-	        <div class="panel-body">
-	          <p><strong>60</strong> Lorem</p>
-	          <p><strong>26</strong> Ipsum</p>
-	          <p><strong>10</strong> Dolor</p>
-	          <p><strong>6</strong> Sit</p>
-	          <p><strong>Endless</strong> Amet</p>
-	        </div>
-	        <div class="panel-footer">
-	          <h3>$29</h3>
-	          <h4>per month</h4>
-	          <button class="btn btn-lg">Sign Up</button>
-	        </div>
-	      </div>      
-	    </div>       
-	    <div class="col-sm-6 col-xs-12">
-	      <div class="panel panel-default text-center">
-	        <div class="panel-heading">
-	          <h1>Premium</h1>
-	        </div>
-	        <div class="panel-body">
-	          <p><strong>100</strong> Lorem</p>
-	          <p><strong>60</strong> Ipsum</p>
-	          <p><strong>26</strong> Dolor</p>
-	          <p><strong>10</strong> Sit</p>
-	          <p><strong>Endless</strong> Amet</p>
-	        </div>
-	        <div class="panel-footer">
-	          <h3>$49</h3>
-	          <h4>per month</h4>
-	          <button class="btn btn-lg">Sign Up</button>
-	        </div>
-	      </div>      
+	      
 	    </div>    
-	  </div>
 	</div>
 
 	<!-- LINKS -->
@@ -256,96 +233,13 @@
 	  </div>
 	</div>
 
-	<footer class="container-fluid text-center">
-	  <a href="#myPage" title="To Top">
-	    <span class="glyphicon glyphicon-chevron-up"></span>
-	  </a>
-	  <p>Indoor Climate Control - Established circa 2007</p>
-	</footer>
+</body>
 
-	<script>
-	$(document).ready(function(){
-	  // Add smooth scrolling to all links in navbar + footer link
-	  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-	    // Make sure this.hash has a value before overriding default behavior
-	    if (this.hash !== "") {
-	      // Prevent default anchor click behavior
-	      event.preventDefault();
+<footer class="container-fluid text-center">
+	<a href="#myPage" title="To Top">
+	 <span class="glyphicon glyphicon-chevron-up"></span>
+	</a>
+	<p>Indoor Climate Control - Established circa 2007</p>
+</footer>
 
-	      // Store hash
-	      var hash = this.hash;
-
-	      // Using jQuery's animate() method to add smooth page scroll
-	      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-	      $('html, body').animate({
-	        scrollTop: $(hash).offset().top
-	      }, 900, function(){
-	   
-	        // Add hash (#) to URL when done scrolling (default click behavior)
-	        window.location.hash = hash;
-	      });
-	    } // End if
-	  });
-	  
-	  $(window).scroll(function() {
-	    $(".slideanim").each(function(){
-	      var pos = $(this).offset().top;
-
-	      var winTop = $(window).scrollTop();
-	        if (pos < winTop + 600) {
-	          $(this).addClass("slide");
-	        }
-	    });
-	  });
-	})
-	</script>
-
-	<script type="text/javascript">
-		.slideanim {visibility:hidden;}
-		.slide {
-		    animation-name: slide;
-		    -webkit-animation-name: slide;
-		    animation-duration: 1s;
-		    -webkit-animation-duration: 1s;
-		    visibility: visible;
-		}
-		@keyframes slide {
-		  0% {
-		    opacity: 0;
-		    -webkit-transform: translateY(70%);
-		  } 
-		  100% {
-		    opacity: 1;
-		    -webkit-transform: translateY(0%);
-		  }
-		}
-		@-webkit-keyframes slide {
-		  0% {
-		    opacity: 0;
-		    -webkit-transform: translateY(70%);
-		  } 
-		  100% {
-		    opacity: 1;
-		    -webkit-transform: translateY(0%);
-		  }
-		}
-		@media screen and (max-width: 768px) {
-		  .col-sm-4 {
-		    text-align: center;
-		    margin: 25px 0;
-		  }
-		  .btn-lg {
-		      width: 100%;
-		      margin-bottom: 35px;
-		  }
-		}
-		@media screen and (max-width: 480px) {
-		  .logo {
-		      font-size: 150px;
-		  }
-		}
-	</script>
-
-
-	</body>
 </html>
