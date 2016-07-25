@@ -25,8 +25,8 @@
 			var estimate = [];
 			var factory = {};
 
-			factory.createEstimate = function(x){
-				console.log('in createEstimate factory function', x.number);
+			factory.createEstimate = function(x, callback){
+				// console.log('in createEstimate factory function', x.number);
 				
 				first = x.number*x.number;
 				// console.log(first);
@@ -35,48 +35,61 @@
 				// console.log(first);
 
 				first = first/69920;
-				console.log(first);
+				// console.log(first);
 
 				second = 557*x.number;
 				// console.log(second);
 
 				second = second/34960;
-				console.log(second);
+				// console.log(second);
 
 				third = 3149/1748;
-				console.log(third);
+				// console.log(third);
 
 				estimate = first - second;
 				estimate = estimate + third;
 
 				estimate = Math.round(estimate);
 				estimate = estimate*1000;
-				console.log(estimate);
-				estimate.push(estimate);
+				console.log(estimate, "in factory");
 
-			};
-
-			factory.getEstimate = function(callback){
 				callback(estimate);
+
+
 			};
+
+			// factory.getEstimate = function(callback){
+			// 	callback(estimate);
+			// };
 
 			return factory;
 		});
 
 		iccAppModule.controller('estimateController', function($scope, estimateFactory){
 			$scope.estimate = [];
-			estimateFactory.getEstimate(function(data){
-				$scope.estimate = data
-				console.log('in controller');
-				console.log(data);
-			});
+			// estimateFactory.getEstimate(function(data){
+			// 	$scope.estimate = data
+			// 	console.log('in controller');
+			// 	console.log(data);
+			// });
 
 			$scope.getEstimate = function(data){
-				console.log($scope.newEstimate);
-				estimateFactory.createEstimate($scope.newEstimate);
+				// console.log($scope.newEstimate);
+				estimateFactory.createEstimate($scope.newEstimate, function(data){
+				// console.log("hello")
+				console.log(data, "HELLO")
+				// console.log($scope.newEstimate);
+
 				$scope.newEstimate = {};
 				$scope.estimate = data;
-			};
+				// console.log($scope.estimate);
+
+				// estimateFactory.createEstimate(function(data){
+				// 	$scope.estimate = data;
+				// 	console.log($scope.estimate);
+				// });
+				});
+			}
 
 		});
 	</script>
