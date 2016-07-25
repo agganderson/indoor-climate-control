@@ -49,7 +49,7 @@
 				estimate = first - second;
 				estimate = estimate + third;
 
-				estimate = Math.round(estimate);
+				// estimate = Math.round(estimate);
 				estimate = estimate*1000;
 				console.log(estimate, "in factory");
 
@@ -58,20 +58,11 @@
 
 			};
 
-			// factory.getEstimate = function(callback){
-			// 	callback(estimate);
-			// };
-
 			return factory;
 		});
 
 		iccAppModule.controller('estimateController', function($scope, estimateFactory){
 			$scope.estimate = [];
-			// estimateFactory.getEstimate(function(data){
-			// 	$scope.estimate = data
-			// 	console.log('in controller');
-			// 	console.log(data);
-			// });
 
 			$scope.getEstimate = function(data){
 				// console.log($scope.newEstimate);
@@ -82,12 +73,7 @@
 
 				$scope.newEstimate = {};
 				$scope.estimate = data;
-				// console.log($scope.estimate);
-
-				// estimateFactory.createEstimate(function(data){
-				// 	$scope.estimate = data;
-				// 	console.log($scope.estimate);
-				// });
+				console.log($scope.estimate);
 				});
 			}
 
@@ -232,7 +218,9 @@
 	    </div>   
 
 	    <div class="col-sm-6 col-xs-12">
-	      <h2>{{ data }}</h2>
+	      <h2>Your estimate is:</h2>
+	      <h3>${{ estimate }}</h3>
+
 	    </div>    
 	</div>
 
