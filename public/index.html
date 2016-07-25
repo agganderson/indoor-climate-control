@@ -29,27 +29,27 @@
 				// console.log('in createEstimate factory function', x.number);
 				
 				first = x.number*x.number;
-				// console.log(first);
+				console.log(first);
 
 				first = first*3;
-				// console.log(first);
+				console.log(first);
 
 				first = first/69920;
-				// console.log(first);
+				console.log(first);
 
 				second = 557*x.number;
-				// console.log(second);
+				console.log(second);
 
 				second = second/34960;
-				// console.log(second);
+				console.log(second);
 
 				third = 3149/1748;
-				// console.log(third);
+				console.log(third);
 
 				estimate = first - second;
 				estimate = estimate + third;
 
-				// estimate = Math.round(estimate);
+				estimate = estimate.toFixed(2);
 				estimate = estimate*1000;
 				console.log(estimate, "in factory");
 
@@ -67,13 +67,12 @@
 			$scope.getEstimate = function(data){
 				// console.log($scope.newEstimate);
 				estimateFactory.createEstimate($scope.newEstimate, function(data){
-				// console.log("hello")
-				console.log(data, "HELLO")
+				// console.log(data, "HELLO")
 				// console.log($scope.newEstimate);
 
 				$scope.newEstimate = {};
 				$scope.estimate = data;
-				console.log($scope.estimate);
+				// console.log($scope.estimate);
 				});
 			}
 
@@ -219,8 +218,12 @@
 
 	    <div class="col-sm-6 col-xs-12">
 	      <h2>Your estimate is:</h2>
+	      <span ng-if="estimate == '' ">
+	      <h3></h3>
+	      </span>
+	      <span ng-if="estimate != '' ">
 	      <h3>${{ estimate }}</h3>
-
+	      </span>
 	    </div>    
 	</div>
 

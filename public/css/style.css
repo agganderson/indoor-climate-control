@@ -10,3 +10,7 @@
 .process.col-sm-6:hover {
 	box-shadow: 5px 5px 5px #003300
 }
+
+#estimate {
+	margin: 20px 0px;
+}
